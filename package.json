@@ -18,6 +18,12 @@
     "url": "https://github.com/edudsf/teste_ecommerce_react_app/issues"
   },
   "homepage": "https://github.com/edudsf/teste_ecommerce_react_app#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'teste'",
+      "pre-push": ""
+    }
+  },
   "devDependencies": {
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
