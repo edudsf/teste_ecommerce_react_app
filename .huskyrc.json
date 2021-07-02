@@ -1,0 +1,8 @@
+{
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'teste'",
+      "pre-push": ""
+    }
+  }
+}
