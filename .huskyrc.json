@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "pre-commit": "echo 'teste'",
+    "pre-commit": "npm run build",
     "pre-push": ""
   }
 }
