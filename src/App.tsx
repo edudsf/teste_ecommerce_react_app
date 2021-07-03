@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '@/components/Header'
 import { ContainerLeft, ContainerRight } from '@/styles/global.js'
 import SideMenu from './components/SideMenu'
+import Products from './pages/Products'
 
 function App (): JSX.Element {
   return (
@@ -11,6 +12,7 @@ function App (): JSX.Element {
         <SideMenu />
       </ContainerLeft>
       <ContainerRight>
+        <Products />
       </ContainerRight>
     </>
   )
