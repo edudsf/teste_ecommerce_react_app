@@ -9,6 +9,14 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     list-style: none;
   }
+
+  body > div {
+    background: #999;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+  }
 `
 export const Container = styled.div`
   margin: 0
