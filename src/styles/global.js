@@ -21,3 +21,6 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
   margin: 0
 `
+export const Span = styled.span`
+  color: #333;
+`
