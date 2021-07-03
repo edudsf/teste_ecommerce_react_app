@@ -4,13 +4,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   devtool: 'eval-source-map',
   mode: 'development',
-  entry: './src/index.ts',
+  entry: './src/index.tsx',
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.ts(x?)$/,
         use: 'ts-loader',
-        include: [path.resolve(__dirname, 'src')],
+        //include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/
       }
     ]
@@ -20,7 +20,10 @@ module.exports = {
     path: path.resolve(__dirname, 'public/js'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      '@': path.join(__dirname, 'src')
+    }
   },
   devServer: {
     publicPath: '/js/',
