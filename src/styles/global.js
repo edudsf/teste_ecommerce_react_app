@@ -11,9 +11,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body > div {
-    background: #999;
+    background: #9999;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: auto 1fr;
     height: 100vh;
   }
