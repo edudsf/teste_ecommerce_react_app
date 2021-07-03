@@ -12,6 +12,19 @@ module.exports = {
         use: 'ts-loader',
         //include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: [
+          {
+            loader: 'file-lodaer',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'img/',
+              publicPath: 'img.'
+            }
+          }
+        ]
       }
     ]
   },

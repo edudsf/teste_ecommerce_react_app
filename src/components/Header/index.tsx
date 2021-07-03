@@ -1,10 +1,11 @@
 import React from 'react'
 import { Container } from './style'
+import logo from '@/assets/images/Nexfar_Preto@4x.png'
 
 function Cart (): JSX.Element {
   return (
     <>
-      <Container>Teste</Container>
+      <Container><img src={logo} alt="" title="" />Teste</Container>
     </>
   )
 }
