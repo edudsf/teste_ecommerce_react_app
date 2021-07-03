@@ -9,7 +9,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts(x?)$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
         //include: [path.resolve(__dirname, 'src')],
         exclude: /node_modules/
       },
@@ -17,11 +17,11 @@ module.exports = {
         test: /\.(png|jpg)$/,
         use: [
           {
-            loader: 'file-lodaer',
+            loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'img/',
-              publicPath: 'img.'
+              outputPath: '../images/',
+              publicPath: '../images/'
             }
           }
         ]
@@ -40,7 +40,7 @@ module.exports = {
   },
   devServer: {
     publicPath: '/js/',
-    contentBase: ['./public', './public/js'],
+    contentBase: ['./public/'],
     hot: true,
     historyApiFallback: true
   },
