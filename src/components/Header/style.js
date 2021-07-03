@@ -7,10 +7,10 @@ export const Column3 = styled.div``
 export const Container = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 2fr 5fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 6fr 2fr 1fr;
   grid-template-rows: auto 1fr;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 6;
   background: #fff;
   border-bottom: 3px solid #006BA6;
   padding: 20px 0;

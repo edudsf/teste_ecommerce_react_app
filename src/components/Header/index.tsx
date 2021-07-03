@@ -6,27 +6,25 @@ import { Span } from '@/styles/global.js'
 function Cart (): JSX.Element {
   console.log(logo)
   return (
-    <>
-      <Container>
-        <Column1>
-          <img src={logo} alt="" title="" />
-        </Column1>
-        <Column3>
+    <Container>
+      <Column1>
+        <img src={logo} alt="" title="" />
+      </Column1>
+      <Column3>
+        <div>
+          <Span>teste</Span>
           <div>
             <Span>teste</Span>
-            <div>
-              <Span>teste</Span>
-              <Span>teste</Span>
-            </div>
             <Span>teste</Span>
           </div>
-          <div>
-            <span>Bell</span>
-            <span>User</span>
-          </div>
-        </Column3>
-      </Container>
-    </>
+          <Span>teste</Span>
+        </div>
+        <div>
+          <Span>Bell</Span>
+          <Span>User</Span>
+        </div>
+      </Column3>
+    </Container>
   )
 }
 
