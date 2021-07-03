@@ -32,7 +32,8 @@ module.exports = {
     historyApiFallback: true
   },
   externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM'
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'react-router': 'ReactRouter'
   }
 }
