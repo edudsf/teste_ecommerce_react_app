@@ -25,7 +25,7 @@ export const Container = styled.div`
   padding: 10px 0;
 }
 & > * > * > * {
-  padding: 10px 0;
+  padding: 0 0 10px 0;
 }
 & > :not(:first-child){
   & > :first-child {
