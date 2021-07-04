@@ -11,7 +11,7 @@ export const Container = styled.div`
       padding-top: 4px;
       font-weight: 600;
       color: #000;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
   & > :first-child {
