@@ -1,15 +1,30 @@
+import { BtnBack, BtnBlue } from '@/components/Buttons'
 import React from 'react'
-import { Container, Header, Body } from './style'
+import { Container, Header } from './style'
+import { Body } from '@/pages/Cart/style'
+import InfoValues from '@/components/InfoValues'
+import InfoProducts from '@/components/InfoProducts'
+import InfoPayment from '@/components/InfoPayment'
+import InfoAddress from '@/components/InfoAddress'
+import InfoGeneral from '@/components/InfoGeneral'
 
 function Checkout (): JSX.Element {
   return (
     <Container>
       <Header>
-
+        <BtnBack/>
+        <BtnBlue name="ENVIAR PEDIDO" icon="v" />
       </Header>
       <Body>
-        <div>c</div>
-        <div>c</div>
+        <div>
+          <InfoPayment/>
+          <InfoAddress/>
+          <InfoGeneral/>
+          <InfoProducts/>
+        </div>
+        <div>
+          <InfoValues/>
+        </div>
       </Body>
     </Container>
   )

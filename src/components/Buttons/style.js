@@ -13,13 +13,11 @@ export const Btn1 = styled.button`
 `
 
 export const Btn2 = styled.button`
-  & button {
-    background: inherit;
-    border: 0;
-    font-weight: 600;
-    font-size: 0.9rem;
-    & > :first-of-type {
-      margin-right: 10px;
-    }
+  background: inherit;
+  border: 0;
+  font-weight: 600;
+  font-size: 0.9rem;
+  & > :first-of-type {
+    margin-right: 10px;
   }
 `

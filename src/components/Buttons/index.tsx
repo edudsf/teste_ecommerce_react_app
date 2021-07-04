@@ -18,10 +18,8 @@ export function BtnBlue (props: Btn): JSX.Element {
 export function BtnBack (): JSX.Element {
   return (
     <Btn2>
-      <button>
-        <span>B</span>
-        <span>VOLTAR</span>
-      </button>
+      <span>B</span>
+      <span>VOLTAR</span>
     </Btn2>
   )
 }
