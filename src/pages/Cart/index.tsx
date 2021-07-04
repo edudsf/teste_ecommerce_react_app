@@ -1,4 +1,6 @@
 import { BtnBlue } from '@/components/Buttons'
+import InfoBox from '@/components/CardsContainers'
+import InfoProducts from '@/components/InfoProducts'
 import React from 'react'
 import { Container, Header, Navigation, Menu, Body } from './style'
 
@@ -26,10 +28,12 @@ function Cart (): JSX.Element {
       </Header>
       <Body>
         <div>
-
+          <InfoProducts />
         </div>
         <div>
+          <InfoBox name="VALORES">
 
+          </InfoBox>
         </div>
       </Body>
     </Container>

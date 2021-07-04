@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Cart (): JSX.Element {
+function InfoValues (): JSX.Element {
   return (
     <>
-
+      teste
     </>
   )
 }
 
-export default Cart
+export default InfoValues

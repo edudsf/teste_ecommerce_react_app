@@ -1,6 +1,18 @@
 import styled from 'styled-components'
 
 export const Header = styled.div``
+
+export const Body = styled.div`
+  display: flex;
+  & > :first-child {
+    margin-right: 20px;
+    flex-grow: 3;
+  }
+  & > :last-child {
+    flex-grow: 1;
+  }
+`
+
 export const Navigation = styled.div`
   display: flex;
   justify-content: space-between;
@@ -23,12 +35,13 @@ export const Navigation = styled.div`
   }
 `
 export const Menu = styled.div`
-  margin-top: 5px;
+  margin: 5px 0 24px 0;
   & div button {
     background: inherit;
     border: 0;
     padding: 10px;
     font-weight: 600;
+    border-bottom: 1px solid red;
   }
 `
 
