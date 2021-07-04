@@ -1,4 +1,4 @@
-import { BtnBlue } from '@/components/Buttons'
+import { BtnBack, BtnBlue } from '@/components/Buttons'
 import InfoClient from '@/components/InfoClient'
 // import InfoBox from '@/components/CardsContainers'
 import InfoProducts from '@/components/InfoProducts'
@@ -11,10 +11,7 @@ function Cart (): JSX.Element {
     <Container>
       <Header>
         <Navigation>
-          <button>
-            <span>B</span>
-            <span>VOLTAR</span>
-          </button>
+          <BtnBack/>
           <div>
             <BtnBlue name="IR PARA PAGAMENTO" icon="C" />
             <button><span>LIMPAR CARRINHO </span><span>D</span></button>
