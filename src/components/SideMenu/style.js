@@ -42,6 +42,7 @@ export const Container = styled.div`
     align-items: center;
     position: relative;
     font-size: 0.95em;
+    padding: 10px 0 10px 0;
   }
   & ul li > * {
     padding-left: 12px;

@@ -11,7 +11,7 @@ export const Grow = styled.div``
 export const Container = styled.div`
   width: 100%;
   background: #fff;
-  margin: 10px 0;
+  margin: 20px 0;
   padding: 14px;
   border-radius: 14px;
   box-shadow: 0 0 15px #E3E3E3;
