@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, ContentLeft, ContentRigth, Filter, Search, OrderNome, Limit } from './style'
 import { Span } from '@/styles/global.js'
 import CardProduct from '@/components/CardProduct'
+import { GettersContext } from '@/context/getters'
 
 function Products (): JSX.Element {
+  const { products } = useContext(GettersContext)
+  console.log(products && products[0].name)
   return (
     <Container>
       <ContentLeft>
@@ -30,8 +33,15 @@ function Products (): JSX.Element {
             </select>
           </Limit>
         </Filter>
-        <CardProduct/>
-        <CardProduct/>
+        {products && products.map((item, index) => {
+          return (
+            <CardProduct
+              key={index}
+              title={item.name}
+              img={item.imageURL}
+            />
+          )
+        })}
       </ContentLeft>
       <ContentRigth>
         <ul>

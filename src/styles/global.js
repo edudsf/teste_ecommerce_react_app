@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     display: grid;
     grid-template-columns: 1fr 2fr 6fr 2fr 1fr;
     grid-template-rows: auto 1fr;
-    height: 100vh;
+    height: 100%;
   }
 `
 export const Container = styled.div`

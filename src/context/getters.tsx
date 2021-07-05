@@ -2,18 +2,27 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { getProducts } from '../services/api'
 
-type Products = {
-  products?: []
+interface Product {
+  id: number
+  name: string
+  imageURL: string
 }
 
-export const GettersContext = createContext<Products>({})
+type Products = {
+  products?: Product[]
+}
+
+export const GettersContext = createContext<Products>({
+  products: []
+})
 
 export const GettersProvider: React.FC = ({ children }) => {
-  const [products, setPrdocuts] = useState<any>()
+  const [products, setPrdocuts] = useState<Products>()
 
   useEffect(() => {
     getProducts('products').then((res) => {
-      setPrdocuts(res)
+      console.log(res)
+      setPrdocuts(res as Products)
     }).catch((res) => {
       // console.log(res)
     })

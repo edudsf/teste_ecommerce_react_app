@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Header, SpanRd, Grow, Body } from './style'
 
-function Cart (): JSX.Element {
+function Cart (props): JSX.Element {
   return (
     <Container>
       <Header>
@@ -17,7 +17,7 @@ function Cart (): JSX.Element {
       </Header>
       <Body>
         <ul>
-          <li><img src="" title="" alt="imagem" /></li>
+          <li><img src={props.img} title="" alt="imagem" /></li>
           <li><span>Base</span><span>Nexfar</span><span>R$ 4,50</span></li>
           <li><span>Estoque</span><div><span>(x)</span><span>1000 un</span></div></li>
           <li><span>Quantidade</span><div><button>-</button><span>100 un</span><button>+</button></div></li>

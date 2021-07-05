@@ -53,12 +53,21 @@ export const Body = styled.div`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    align-items: start;
     &:not(:first-child){
       border-bottom: 2px solid #333;
       padding-bottom: 20px;
     }
     &:first-of-type {
       justify-content: center;
+    }
+    &:nth-of-type(1){
+      width: 80px;
+      padding-right: 10px;
+      & img {
+        align-self: center;
+        height: 80px;
+      }
     }
     &:nth-of-type(2){
       & > :last-child {
@@ -98,6 +107,11 @@ export const Body = styled.div`
     &:nth-of-type(5) {
       & > :last-child {
         font-weight: 600;
+      }
+    }
+    &:nth-of-type(6) {
+      & button {
+        align-self: center;
       }
     } 
 

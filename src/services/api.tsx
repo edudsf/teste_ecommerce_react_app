@@ -12,7 +12,7 @@ type Products = {
 const base = async (args: object): Promise<AxiosResponse> => {
   try {
     const r = await api({ ...args })
-    return r
+    return r.data
   } catch (err) {
     console.log(err)
     return err
