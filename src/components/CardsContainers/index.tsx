@@ -8,7 +8,6 @@ type Infos = {
 }
 
 function InfoBox (props: Infos): JSX.Element {
-  console.log(props.children)
   return (
     <Container>
       <div><h4>{ props.name }</h4><a href="#">{props.button}</a></div>

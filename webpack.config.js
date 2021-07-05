@@ -25,10 +25,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.js(x?)$/,
-        use: 'val-loader'
       }
     ]
   },

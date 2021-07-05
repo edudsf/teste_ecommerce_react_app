@@ -2,7 +2,7 @@
 import React from 'react'
 import { GettersProvider } from './getters'
 
-const GlobalState = ({ children }) => (
+const GlobalState = ({ children }): any => (
   <GettersProvider>
     {children}
   </GettersProvider>

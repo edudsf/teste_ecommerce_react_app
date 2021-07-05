@@ -4,7 +4,6 @@ import logo from '@/assets/images/Nexfar_Preto@4x.png'
 import { Span } from '@/styles/global.js'
 
 function Cart (): JSX.Element {
-  console.log(logo)
   return (
     <Container>
       <Column1>

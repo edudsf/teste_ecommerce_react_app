@@ -11,7 +11,9 @@ import Router from '@/router/routes'
 
 function App (): JSX.Element {
   const { products } = useContext(GettersContext)
+
   console.log(products)
+
   return (
     <BrowserRouter>
       <Header />
