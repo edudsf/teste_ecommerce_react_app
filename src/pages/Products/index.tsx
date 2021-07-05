@@ -1,12 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Container, ContentLeft, ContentRigth, Filter, Search, OrderNome, Limit } from './style'
 import { Span } from '@/styles/global.js'
 import CardProduct from '@/components/CardProduct'
 import { GettersContext } from '@/context/getters'
+import Paginator from '@/utils/Paginator'
 
 function Products (): JSX.Element {
+  const [pageNumber, setPageNumber] = useState(0)
   const { products } = useContext(GettersContext)
-  console.log(products && products[0].name)
+
+  const productsPerPage = 3
+  const pagesVisited = pageNumber * productsPerPage
+  const returnProdcuts = products && products
+    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .map((item, index) => {
+      return (
+        <CardProduct
+          key={index}
+          title={item.name}
+          img={item.imageURL}
+        />
+      )
+    })
+
+  const changePage = (selected): void => {
+    console.log(selected)
+    setPageNumber(selected)
+  }
+
   return (
     <Container>
       <ContentLeft>
@@ -33,15 +54,8 @@ function Products (): JSX.Element {
             </select>
           </Limit>
         </Filter>
-        {products && products.map((item, index) => {
-          return (
-            <CardProduct
-              key={index}
-              title={item.name}
-              img={item.imageURL}
-            />
-          )
-        })}
+        {returnProdcuts}
+        <Paginator count={5} onPageChange={changePage} />
       </ContentLeft>
       <ContentRigth>
         <ul>
