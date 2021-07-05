@@ -16,5 +16,5 @@ const base = async (args: object): Promise<AxiosResponse> => {
   }
 }
 
-export const products = async (data: string): Promise<AxiosResponse> => base({ url: data })
-export const cart = async (data: string): Promise<AxiosResponse> => base({ url: data })
+export const getProducts = async (data: string): Promise<AxiosResponse> => base({ url: data })
+export const getCart = async (data: string): Promise<AxiosResponse> => base({ url: data })

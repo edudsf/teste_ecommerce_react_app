@@ -25,6 +25,10 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.js(x?)$/,
+        use: 'val-loader'
       }
     ]
   },
@@ -33,7 +37,7 @@ module.exports = {
     path: path.resolve(__dirname, 'public/js'),
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
@@ -47,6 +51,5 @@ module.exports = {
   externals: {
     'react': 'React',
     'react-dom': 'ReactDOM',
-    'react-router': 'ReactRouter'
   }
 }
