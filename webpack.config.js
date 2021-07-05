@@ -42,7 +42,7 @@ module.exports = {
     publicPath: '/js/',
     contentBase: ['./public/'],
     hot: true,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   externals: {
     'react': 'React',
