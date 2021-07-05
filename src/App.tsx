@@ -2,9 +2,9 @@ import React from 'react'
 import Header from '@/components/Header'
 import { ContainerLeft, ContainerRight } from '@/styles/global.js'
 import SideMenu from './components/SideMenu'
-import Checkout from './pages/Checkout'
+// import Checkout from './pages/Checkout'
 // import Cart from './pages/Cart'
-// import Products from './pages/Products'
+import Products from './pages/Products'
 
 function App (): JSX.Element {
   return (
@@ -14,9 +14,9 @@ function App (): JSX.Element {
         <SideMenu />
       </ContainerLeft>
       <ContainerRight>
-        {/* <Products /> */}
+        <Products />
         {/* <Cart /> */}
-        <Checkout />
+        {/* <Checkout /> */}
       </ContainerRight>
     </>
   )
