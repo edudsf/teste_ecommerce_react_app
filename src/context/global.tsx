@@ -1,10 +1,13 @@
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
+import CartProvider from './cart'
 import { GettersProvider } from './getters'
 
 const GlobalState = ({ children }): any => (
   <GettersProvider>
-    {children}
+    <CartProvider>
+      {children}
+    </CartProvider>
   </GettersProvider>
 )
 

@@ -9,7 +9,7 @@ function Cart (props): JSX.Element {
           12345678
         </SpanRd>
         <h4>
-          CIMEGRIPE C/20CPS (PARA+FENIL+CLOR)
+          {props.title}
         </h4>
         <Grow />
         <span>x</span>

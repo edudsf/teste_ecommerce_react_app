@@ -14,8 +14,7 @@ const base = async (args: object): Promise<AxiosResponse> => {
     const r = await api({ ...args })
     return r.data
   } catch (err) {
-    console.log(err)
-    return err
+    return err.response
   }
 }
 

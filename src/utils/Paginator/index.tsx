@@ -7,7 +7,6 @@ type Props = {
 }
 
 const Paginator = (props: Props): JSX.Element => {
-  // console.log(props.onPageChange(2))
   const range = []
   const paginate = (): number[] => {
     for (let i = 1; i <= props.count; i++) {
@@ -21,7 +20,7 @@ const Paginator = (props: Props): JSX.Element => {
       <ul>
         {paginate().map((item, index) => {
           return (
-            <li onClick={() => props.onPageChange(item)} key={index}>{item}</li>
+            <li onClick={() => props.onPageChange(index)} key={index}>{item}</li>
           )
         })}
       </ul>
