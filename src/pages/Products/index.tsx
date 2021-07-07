@@ -27,9 +27,15 @@ function Products (): JSX.Element {
     .map((item, index) => {
       return (
         <CardProduct
+          arr={item}
+          id={item.id}
+          price={item.price}
           key={index}
-          title={item.name}
-          img={item.imageURL}
+          name={item.name}
+          imageURL={item.imageURL}
+          barcode={item.barcode}
+          quantityAvailable={item.quantityAvailable}
+          maker={item.maker}
         />
       )
     })
