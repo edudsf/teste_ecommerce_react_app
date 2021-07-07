@@ -7,12 +7,14 @@ import InfoProducts from '@/components/InfoProducts'
 import InfoPayment from '@/components/InfoPayment'
 import InfoAddress from '@/components/InfoAddress'
 import InfoGeneral from '@/components/InfoGeneral'
+import { usePath } from '@/hooks/use_path'
 
 function Checkout (): JSX.Element {
+  const go = usePath()
   return (
     <Container>
       <Header>
-        <BtnBack/>
+        <BtnBack icon="V" name="VOLTAR" onClick={go.back}/>
         <BtnBlue name="ENVIAR PEDIDO" icon="v" />
       </Header>
       <Body>

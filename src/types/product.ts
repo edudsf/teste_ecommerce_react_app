@@ -6,5 +6,5 @@ export interface Product {
   price: object
   barcode: string
   quantityAvailable: number
-  arr: Product
+  arr: any
 }

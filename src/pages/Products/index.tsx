@@ -41,7 +41,7 @@ function Products (): JSX.Element {
     })
 
   const count = products && Math.ceil(teste / page.productsPerPage)
-  console.log(teste)
+
   const handleInputSearch = (e): void => {
     setSearch(e.target.value)
   }
@@ -91,7 +91,7 @@ function Products (): JSX.Element {
               <option value="3">3</option>
               <option value="6">6</option>
               <option value="9">9</option>
-              <option value="12">12</option>
+              <option value="13">15</option>
             </select>
           </Limit>
         </Filter>

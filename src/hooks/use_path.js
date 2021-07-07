@@ -4,15 +4,15 @@ export const usePath = () => {
   const history = useHistory()
   const state = history?.location?.state
 
-  const produtos = () => history.push('/produtos')
-  const carrinho = () => history.push('/carrinho')
-  const pagamento = () => history.push('/pagamento')
+  const products = () => history.push('/produtos')
+  const cart = () => history.push('/carrinho')
+  const checkout = () => history.push('/pagamento')
   const back = () => history.goBack()
 
   return {
-    produtos,
-    carrinho,
-    pagamento,
+    products,
+    cart,
+    checkout,
     back,
     state
   }

@@ -5,15 +5,17 @@ import InfoProducts from '@/components/InfoProducts'
 import InfoValues from '@/components/InfoValues'
 import React from 'react'
 import { Container, Header, Navigation, Menu, Body } from './style'
+import { usePath } from '@/hooks/use_path'
 
 function Cart (): JSX.Element {
+  const go = usePath()
   return (
     <Container>
       <Header>
         <Navigation>
-          <BtnBack/>
+          <BtnBack onClick={go.back} icon="V" name="VOLTAR"/>
           <div>
-            <BtnBlue name="IR PARA PAGAMENTO" icon="C" />
+            <BtnBlue onClick={go.checkout} name="IR PARA PAGAMENTO" icon="C" />
             <button><span>LIMPAR CARRINHO </span><span>D</span></button>
           </div>
         </Navigation>
