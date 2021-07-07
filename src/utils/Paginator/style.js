@@ -4,10 +4,11 @@ export const List = styled.li`
   /* background: ${props => props.active === false ? 'blue' : 'red'}; */
   
   &.active {
-    background: red;
+    background: #006BA6;
+    color: #fff;
   }
 
-  ${props => {
+ /*  ${props => {
     if (props.active === true) {
  return `
     &:nth-of-type(${props.teste}) {
@@ -15,7 +16,7 @@ export const List = styled.li`
     }
     `
 }
-  }}
+  }} */
 `
 export const Container = styled.div`
   width: 500px;

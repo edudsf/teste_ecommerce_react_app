@@ -26,7 +26,7 @@ function InfoValues (): JSX.Element {
         <div>
           <span>Total</span>
           <span>(sem impostos)</span>
-          <span>R$ {totalPrice()}</span>
+          <span>R$ {totalPrice().toFixed(2)}</span>
         </div>
         <div>
           <span>Impostos</span>
@@ -34,7 +34,7 @@ function InfoValues (): JSX.Element {
         </div>
         <div>
           <span>Total:</span>
-          <span>R$ {totalPrice() + taxes * cart.length}</span>
+          <span>R$ {(totalPrice() + taxes * cart.length).toFixed(2)}</span>
         </div>
       </Container>
     </InfoBox>

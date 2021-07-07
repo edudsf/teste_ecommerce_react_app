@@ -35,6 +35,9 @@ const Paginator = (props: Props): JSX.Element => {
   })
 
   const handleNext = (): void => {
+    if (currentPage === props.count) {
+      return null
+    }
     setCurrentPage(currentPage + 1)
     props.onPageChange(currentPage)
 
@@ -46,10 +49,13 @@ const Paginator = (props: Props): JSX.Element => {
 
   const handlePrev = (): void => {
     const index = currentPage - 1
+    if (index === 0) {
+      return null
+    }
     setCurrentPage(currentPage - 1)
     props.onPageChange(index - 1)
 
-    if ((currentPage - 1) % maxPageNumberLimit === 0) {
+    if ((currentPage - 1) % pageNumberLimit === 0) {
       setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit)
       setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit)
     }
