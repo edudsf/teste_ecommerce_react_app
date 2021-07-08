@@ -2,18 +2,6 @@ import React, { createContext, useState, useEffect } from 'react'
 import { Product } from '@/types/product'
 import { Cart } from '@/types/cart'
 
-/*
-type Cart = {
-  addItem: () => void
-  deleteItem: () => void
-} */
-
-/* type Cart = {
-  products?: Product[]
-  addItem: any
-  deleteItem: any
-} */
-
 export const CartContext = createContext([] as any)
 
 const CartProvider: React.FC = ({ children }) => {
@@ -46,6 +34,17 @@ const CartProvider: React.FC = ({ children }) => {
     setItem(cart)
   }
 
+  const totalPrice = (): number => {
+    let total: number = 0
+    let totalAll: number = 0
+    for (const value of cart) {
+      total = value.quantity * value.product.price.price
+      totalAll += total
+    }
+
+    return Number(totalAll.toFixed(2))
+  }
+
   const deleteItem = (item: Product): void => {
     console.log('deleteItem')
   }
@@ -55,7 +54,7 @@ const CartProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <CartContext.Provider value={{ addItem, deleteItem, cart }}>
+    <CartContext.Provider value={{ addItem, deleteItem, cart, totalPrice }}>
       {children}
     </CartContext.Provider>
   )

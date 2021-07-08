@@ -44,6 +44,8 @@ export const Body = styled.div`
     margin-bottom: 3px;
     & span {
       font-size: 0.75em;
+      background: #F5E0E9;
+      color: #000;
     }
     & > span:not(:first-child) {
       margin-left: 10px;
@@ -55,7 +57,7 @@ export const Body = styled.div`
     flex-grow: 1;
     align-items: start;
     &:not(:first-child){
-      border-bottom: 2px solid #333;
+      border-bottom: 2px solid #F2F2FF;
       padding-bottom: 20px;
     }
     &:first-of-type {

@@ -1,8 +1,21 @@
 import styled from 'styled-components'
 
 export const Search = styled.div``
-export const OrderNome = styled.div``
-export const Limit = styled.div``
+export const OrderNome = styled.div`
+  & select {
+    background: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 50px;
+  }
+`
+export const Limit = styled.div`
+  & select {
+    border-radius: 50px;
+    border: none;
+    padding: 8px;
+  }
+`
 
 export const ContentLeft = styled.div`
   padding: 20px;
@@ -45,10 +58,32 @@ export const Filter = styled.div`
     }
   }
   & ${Search} {
+    position: relative;
+    display: flex;
+    & label {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #8F2D56;
+      width: 40px;
+      height: 40px;
+      border-radius: 30px;
+      color: #fff;
+      bottom: -5px;
+    }
     & input {
       border: 1px solid #bbb;
-      padding: 10px;
+      padding: 7px 0 7px 30px;
       width: 100%;
+      margin-left: 20px;
+      border-top-right-radius: 40px;
+      border-bottom-right-radius: 40px;
+      background: #F5E0E9;
+      border: 0;
+      &:focus {
+        outline: none;
+      }
     }
   }
 `

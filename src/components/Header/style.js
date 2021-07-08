@@ -7,7 +7,7 @@ export const Column3 = styled.div``
 export const Container = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 2fr 6fr 2fr 1fr;
+  grid-template-columns: 1fr 2fr 6fr 250px 1fr;
   grid-template-rows: auto 1fr;
   grid-column-start: 1;
   grid-column-end: 6;
@@ -23,6 +23,7 @@ export const Container = styled.div`
     }
   }
   & ${Column3} {
+    font-size: 0.9em;
     align-items: center;
     display: flex;
     grid-column-start: 4;
@@ -33,6 +34,23 @@ export const Container = styled.div`
     }
     & > :last-child {
       text-align: right;
+      & > :first-child {
+        padding-right: 16px;
+      }
+    }
+    & > :first-child {
+      padding-right: 10px;
+      & > a * {
+        padding: 4px 0;
+      }
+      & > a span:last-of-type {
+        font-size: 0.8em;
+      }
+      & div > :last-child {
+        padding-left: 6px;
+        font-weight: 600;
+        color: #006BA6;
+      }
     }
   }
 `

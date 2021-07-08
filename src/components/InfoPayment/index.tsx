@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import InfoBox from '@/components/CardsContainers'
 import { Container } from './style'
+import { CartContext } from '@/context/cart'
 
 const InfoPayment = (): JSX.Element => {
+  const { totalPrice } = useContext(CartContext)
+
   return (
     <InfoBox name="OPÇÃO DE PAGAMENTO">
       <Container>
-        <p>O valor total dos produos é de R$ 460,00 (com impostos).</p>
+        <p>O valor total dos produos é de R$ {totalPrice()} (com impostos).</p>
         <div>
           <span>
           Seleciona a forma de pagamento desejada:

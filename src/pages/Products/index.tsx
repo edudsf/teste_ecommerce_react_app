@@ -7,8 +7,9 @@ import Paginator from '@/utils/Paginator'
 
 function Products (): JSX.Element {
   const { products } = useContext(GettersContext)
-  console.log(products)
+
   let teste = 0
+  const [sort, setSort] = useState('')
   const [search, setSearch] = useState('')
   const [page, setPage] = useState({
     pageNumber: 0,
@@ -46,6 +47,25 @@ function Products (): JSX.Element {
     setSearch(e.target.value)
   }
 
+  const handleSort = (e): void => {
+    setSort(e.target.value)
+    orderByName(e.target.value)
+    console.log(sort)
+  }
+
+  const orderByName = (char): any => {
+    products && products.sort((a, b) => {
+      return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+    })
+    if (char === 'z') {
+      products && products.sort((b, a) => {
+        return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
+      })
+    }
+
+    return products
+  }
+
   const handleSelectLimit = (e): void => {
     setPage({
       productsPerPage: Number(e.target.value),
@@ -61,7 +81,6 @@ function Products (): JSX.Element {
   }
 
   useEffect(() => {
-    console.log('edu')
     setPage({
       pageNumber: count,
       productsPerPage: page.productsPerPage
@@ -74,24 +93,24 @@ function Products (): JSX.Element {
       <ContentLeft>
         <Filter>
           <Search>
-            <input onChange={() => handleInputSearch(event)} value={search} type="text"></input>
+            <label>ic</label>
+            <input placeholder="pesquisar" onChange={() => handleInputSearch(event)} value={search} type="text"></input>
           </Search>
           <OrderNome>
             <Span>Ordenar por:</Span>
-            <select id="teste">
-              <option value="volvo">3</option>
-              <option value="saab">6</option>
-              <option value="opel">9</option>
-              <option value="audi">12</option>
+            <select onChange={() => handleSort(event)} id="teste">
+              <option value="">selecioar</option>
+              <option value="a">Nome (A-Z)</option>
+              <option value="z">Nome (Z-A)</option>
             </select>
           </OrderNome>
           <Limit>
             <Span>Exibição:</Span>
-            <select onChange={() => handleSelectLimit(event)} id="cars">
+            <select onChange={() => handleSelectLimit(event)} id="limit">
               <option value="3">3</option>
               <option value="6">6</option>
               <option value="9">9</option>
-              <option value="13">15</option>
+              <option value="12">12</option>
             </select>
           </Limit>
         </Filter>
