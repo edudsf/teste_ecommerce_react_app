@@ -17,9 +17,9 @@ const InfoPayment = (): JSX.Element => {
           <span>
             <select id="cars">
               <option value="volvo">Selecione a forma de pagamento</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
+              <option value="saab">Teste</option>
+              <option value="opel">Teste</option>
+              <option value="audi">Teste</option>
             </select>
           </span>
         </div>
