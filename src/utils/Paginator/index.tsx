@@ -1,15 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, List } from './style'
 
 type Props = {
   count: number
   onPageChange: (param) => void
+  state: boolean
 }
 
 const Paginator = (props: Props): JSX.Element => {
+  useEffect(() => {
+    setCurrentPage(1)
+    setMaxPageNumberLimit(4)
+    setMinPageNumberLimit(0)
+  }, [props.state])
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [pageNumberLimit, setPageNumberLimit] = useState(3)
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3)
+  const [pageNumberLimit, setPageNumberLimit] = useState(4)
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(4)
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
   const [currentPage, setCurrentPage] = useState(1)
 

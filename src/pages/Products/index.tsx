@@ -12,6 +12,7 @@ function Products (): JSX.Element {
 
   let teste = 0
   let count = 0
+  const [stateCheckbox, setStateCheckbox] = useState(false)
   const [filtercaty, setFilterCaty] = useState<Categories>({
     COSMÉTICOS: false,
     SIMILARES: false,
@@ -102,10 +103,10 @@ function Products (): JSX.Element {
       }
     }
     if (newArr.length === 0) {
-      count = array.length / page.productsPerPage
+      count = Math.ceil(array.length / page.productsPerPage)
       return array
     } else {
-      count = newArr.length / page.productsPerPage
+      count = Math.ceil(newArr.length / page.productsPerPage)
       return newArr
     }
   }
@@ -140,6 +141,7 @@ function Products (): JSX.Element {
   /******************************************************/
 
   const handleSelectCategories = (e): void => {
+    setStateCheckbox(!stateCheckbox)
     const { name } = e.target
     setFilterCaty({
       ...filtercaty,
@@ -164,13 +166,16 @@ function Products (): JSX.Element {
     })
   }
 
+  /******************************************************/
+  /******************************************************/
+
   useEffect(() => {
     /* setPage({
       pageNumber: count,
       productsPerPage: page.productsPerPage
     }) */
     changePage(0)
-  }, [teste, page.productsPerPage, actions, stock, filtercaty])
+  }, [filtercaty, stock, teste])
 
   return (
     <Container>
@@ -199,7 +204,7 @@ function Products (): JSX.Element {
           </Limit>
         </Filter>
         {renderFilter(renderMethod())}
-        {count === 1 ? '' : <Paginator count={count} onPageChange={changePage} />}
+        {count === 1 ? '' : <Paginator count={count} state={stateCheckbox} onPageChange={changePage} />}
       </ContentLeft>
       <ContentRigth>
         <ul>
