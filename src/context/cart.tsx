@@ -45,8 +45,31 @@ const CartProvider: React.FC = ({ children }) => {
     return Number(totalAll.toFixed(2))
   }
 
-  const deleteItem = (item: Product): void => {
-    console.log('deleteItem')
+  const deleteItem = (item: Product): boolean => {
+    if (cart.length !== 0) {
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].product.id === item.id) {
+          if (cart[i].quantity === 1) {
+            cart[i].quantity--
+            cart.splice(i, 1)
+            setCart([...cart])
+            setItem(cart)
+            return false
+          }
+          if (cart[i].quantity > 1) {
+            cart[i].quantity--
+            setCart([...cart])
+            setItem(cart)
+            return false
+          }
+        }
+      }
+    }
+  }
+
+  const clearCart = (): void => {
+    setCart([])
+    localStorage.removeItem('CartNexfar')
   }
 
   const setItem = (item): void => {
@@ -54,7 +77,7 @@ const CartProvider: React.FC = ({ children }) => {
   }
 
   return (
-    <CartContext.Provider value={{ addItem, deleteItem, cart, totalPrice }}>
+    <CartContext.Provider value={{ addItem, deleteItem, cart, totalPrice, clearCart }}>
       {children}
     </CartContext.Provider>
   )

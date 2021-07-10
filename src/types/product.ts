@@ -7,4 +7,5 @@ export interface Product {
   barcode: string
   quantityAvailable: number
   arr: any
+  category?: string
 }

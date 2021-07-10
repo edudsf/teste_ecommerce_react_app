@@ -36,13 +36,12 @@ function Cart (props: Product): JSX.Element {
           <li><img src={props.imageURL} title="" alt="imagem" /></li>
           <li><span>Base</span><span>Nexfar</span><span>R$ {props.arr.price.price}</span></li>
           <li><span>Estoque</span><div><span>(x)</span><span>{props.quantityAvailable} un</span></div></li>
-          <li><span>Quantidade</span><div><button onClick={() => deleteItem(props)}>-</button><span>{searchProduct() ? searchProduct() : 0} un</span><button onClick={() => addItem(props.arr)}>+</button></div></li>
+          <li><span>Quantidade</span><div><button onClick={() => deleteItem(props.arr)}>-</button><span>{searchProduct() ? searchProduct() : 0} un</span><button onClick={() => addItem(props.arr)}>+</button></div></li>
           <li><span>Valor</span><span>R$ {total ? total.toFixed(2) : 0}</span></li>
           <li><button>D</button></li>
         </ul>
         <div>
-          <SpanRd>SIMILARES</SpanRd>
-          <SpanRd>CIMED</SpanRd>
+          <SpanRd>{props.maker}</SpanRd>
         </div>
       </Body>
     </Container>

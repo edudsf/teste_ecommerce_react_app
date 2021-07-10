@@ -4,33 +4,28 @@ import { getProducts } from '../services/api'
 import { Product } from '@/types/product'
 import { AxiosResponse } from 'axios'
 
-/*
-interface Product {
-  id: number
-  name: string
-  imageURL: string
-}
-*/
-
 type Products = {
   products?: Product[]
 }
 export const GettersContext = createContext<Products>({})
 
 export const GettersProvider: React.FC = ({ children }) => {
-  const [products, setPrdocuts] = useState<AxiosResponse<Products>>()
+  const [products, setProducts] = useState<AxiosResponse<Products>>([] as any)
+
+  const getAllProducts = async (): Promise<any> => {
+    return await getProducts('products')
+  }
 
   useEffect(() => {
     getProducts('products').then((res) => {
-      console.log(res)
-      setPrdocuts(res)
+      setProducts(res)
     }).catch((res) => {
       // console.log(res)
     })
   }, [])
 
   return (
-    <GettersContext.Provider value={{ products } as any}>
+    <GettersContext.Provider value={{ products, setProducts, getAllProducts } as any}>
       {children}
     </GettersContext.Provider>
   )

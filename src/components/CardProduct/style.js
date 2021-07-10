@@ -39,7 +39,7 @@ export const Body = styled.div`
   }
   & > div {
     position: relative;
-    left: 15px;
+    left: 20px;
     margin-left: 16.66%;
     margin-bottom: 3px;
     & span {

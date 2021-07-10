@@ -4,11 +4,26 @@ import { Span } from '@/styles/global.js'
 import CardProduct from '@/components/CardProduct'
 import { GettersContext } from '@/context/getters'
 import Paginator from '@/utils/Paginator'
+import { Categories } from '@/types/categories'
+import { Product } from '@/types/product'
 
 function Products (): JSX.Element {
-  const { products } = useContext(GettersContext)
+  const { products } = useContext<any>(GettersContext)
 
   let teste = 0
+  const [filtercaty, setFilterCaty] = useState<Categories>({
+    COSMÉTICOS: false,
+    SIMILARES: false,
+    psicotropicos: false,
+    higiene: false
+  })
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [all, setAll] = useState(true)
+  const [stock, setStock] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [actions, setActions] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [sort, setSort] = useState('')
   const [search, setSearch] = useState('')
   const [page, setPage] = useState({
@@ -17,31 +32,7 @@ function Products (): JSX.Element {
   })
 
   const pagesVisited = page.pageNumber * page.productsPerPage
-  const returnProdcuts = products && products
-    .filter(item => {
-      if (item.name.includes(search.toUpperCase())) {
-        teste++
-        return item
-      }
-    })
-    .slice(pagesVisited, pagesVisited + page.productsPerPage)
-    .map((item, index) => {
-      return (
-        <CardProduct
-          arr={item}
-          id={item.id}
-          price={item.price}
-          key={index}
-          name={item.name}
-          imageURL={item.imageURL}
-          barcode={item.barcode}
-          quantityAvailable={item.quantityAvailable}
-          maker={item.maker}
-        />
-      )
-    })
-
-  const count = products && Math.ceil(teste / page.productsPerPage)
+  const count = Math.ceil(teste / page.productsPerPage)
 
   const handleInputSearch = (e): void => {
     setSearch(e.target.value)
@@ -50,10 +41,9 @@ function Products (): JSX.Element {
   const handleSort = (e): void => {
     setSort(e.target.value)
     orderByName(e.target.value)
-    console.log(sort)
   }
 
-  const orderByName = (char): any => {
+  const orderByName = (char): Product[] => {
     products && products.sort((a, b) => {
       return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)
     })
@@ -64,6 +54,129 @@ function Products (): JSX.Element {
     }
 
     return products
+  }
+
+  /******************************************************/
+  /******************************************************/
+
+  const renderMethod = (): any => {
+    if (stock === true && actions === true) {
+      let array = []
+      array = products.filter(item => {
+        return item.quantityAvailable > 0
+      }).filter(item => {
+        return item.price.discount > 0
+      })
+      return array
+    }
+
+    if (stock) {
+      let array = [...products]
+      array = products.filter(item => {
+        return item.quantityAvailable > 0
+      })
+      return array
+    }
+
+    if (actions) {
+      let array = [...products]
+      array = products.filter(item => {
+        return item.quantityAvailable > 0
+      })
+      return array
+    }
+    return products
+  }
+
+  /******************************************************/
+  /******************************************************/
+
+  /*  const FilterProducts = (): any => {
+    const newArr = []
+    const arrStock = []
+
+    if (all === true) {
+      newArr.push(...products)
+    } else {
+      newArr.pop()
+    }
+
+    if (stock === true) {
+      arrStock.push(...products.filter(item => {
+        return item.quantityAvailable > 0
+      }))
+    }
+
+    for (const value in filtercaty) {
+      newArr.push(...products.filter(item => {
+        if (filtercaty[value] === true) {
+          return item.category === `${value}`
+        }
+      }))
+    }
+
+    return newArr.filter(item => {
+      if (item.name.includes(search.toUpperCase())) {
+        teste++
+        return item
+      }
+    }).slice(pagesVisited, pagesVisited + page.productsPerPage)
+      .map((item, index) => {
+        return (
+          <CardProduct
+            arr={item}
+            id={item.id}
+            price={item.price}
+            key={index}
+            name={item.name}
+            imageURL={item.imageURL}
+            barcode={item.barcode}
+            quantityAvailable={item.quantityAvailable}
+            maker={item.maker}
+          />
+        )
+      })
+  } */
+
+  /******************************************************/
+  /******************************************************/
+  const renderFilter = (array: Product[]): any[] => {
+    return array.filter(item => {
+      if (item.name.includes(search.toUpperCase())) {
+        teste++
+        return item
+      }
+    }).slice(pagesVisited, pagesVisited + page.productsPerPage)
+      .map((item, index) => {
+        return (
+          <CardProduct
+            arr={item}
+            id={item.id}
+            price={item.price}
+            key={index}
+            name={item.name}
+            imageURL={item.imageURL}
+            barcode={item.barcode}
+            quantityAvailable={item.quantityAvailable}
+            maker={item.maker}
+          />
+        )
+      })
+  }
+  /******************************************************/
+  /******************************************************/
+
+  const handleSelectCategories = (e): void => {
+    const { name } = e.target
+    setFilterCaty({
+      ...filtercaty,
+      [name]: e.target.checked
+    })
+    if (name === 'stock') {
+      setStock(true)
+    }
+    setAll(false)
+    // FilterProducts()
   }
 
   const handleSelectLimit = (e): void => {
@@ -114,7 +227,7 @@ function Products (): JSX.Element {
             </select>
           </Limit>
         </Filter>
-        {returnProdcuts}
+        {renderFilter(renderMethod())}
         {count === 1 ? '' : <Paginator count={count} onPageChange={changePage} />}
       </ContentLeft>
       <ContentRigth>
@@ -125,14 +238,15 @@ function Products (): JSX.Element {
         </ul>
         <ul>
           <h4>ESTOQUE</h4>
-          <li><span><input type="checkbox" /></span><span>ESTOQUE DISPONÍVEL</span></li>
+          <li><span><input name="stock" onChange={handleSelectCategories} type="checkbox" /></span><span>ESTOQUE DISPONÍVEL</span></li>
         </ul>
         <ul>
           <h4>CATEGORIAS</h4>
-          <li><span><input type="checkbox" /></span><span>GENÉRICOS</span></li>
-          <li><span><input type="checkbox" /></span><span>SIMILARES</span></li>
-          <li><span><input type="checkbox" /></span><span>PSICOTRÓPICOS</span></li>
-          <li><span><input type="checkbox" /></span><span>HIGIENE E BELEZA</span></li>
+          <li><span><input checked disabled name="all" onChange={handleSelectCategories} type="checkbox" value='all' /></span><span>TODAS</span></li>
+          <li><span><input name="COSMÉTICOS" onChange={handleSelectCategories} value='genericos' type="checkbox" /></span><span>GENÉRICOS</span></li>
+          <li><span><input name="SIMILARES" onChange={handleSelectCategories} value='similares' type="checkbox" /></span><span>SIMILARES</span></li>
+          <li><span><input name="psicotropicos" onChange={handleSelectCategories} value='psico' type="checkbox" /></span><span>PSICOTRÓPICOS</span></li>
+          <li><span><input name="higiene" onChange={handleSelectCategories} value='higiene' type="checkbox" /></span><span>HIGIENE E BELEZA</span></li>
         </ul>
       </ContentRigth>
     </Container>
