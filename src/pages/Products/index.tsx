@@ -11,6 +11,7 @@ function Products (): JSX.Element {
   const { products } = useContext<any>(GettersContext)
 
   let teste = 0
+  let count = 0
   const [filtercaty, setFilterCaty] = useState<Categories>({
     COSMÉTICOS: false,
     SIMILARES: false,
@@ -32,7 +33,7 @@ function Products (): JSX.Element {
   })
 
   const pagesVisited = page.pageNumber * page.productsPerPage
-  const count = Math.ceil(teste / page.productsPerPage)
+  // const count = Math.ceil(teste / page.productsPerPage)
 
   const handleInputSearch = (e): void => {
     setSearch(e.target.value)
@@ -67,7 +68,7 @@ function Products (): JSX.Element {
       }).filter(item => {
         return item.price.discount > 0
       })
-      return array
+      return filterCategory(array)
     }
 
     if (stock) {
@@ -75,7 +76,7 @@ function Products (): JSX.Element {
       array = products.filter(item => {
         return item.quantityAvailable > 0
       })
-      return array
+      return filterCategory(array)
     }
 
     if (actions) {
@@ -83,63 +84,35 @@ function Products (): JSX.Element {
       array = products.filter(item => {
         return item.quantityAvailable > 0
       })
-      return array
+      return filterCategory(array)
     }
-    return products
+    return filterCategory(products)
   }
 
   /******************************************************/
   /******************************************************/
 
-  /*  const FilterProducts = (): any => {
+  const filterCategory = (array): Product[] => {
     const newArr = []
-    const arrStock = []
-
-    if (all === true) {
-      newArr.push(...products)
-    } else {
-      newArr.pop()
-    }
-
-    if (stock === true) {
-      arrStock.push(...products.filter(item => {
-        return item.quantityAvailable > 0
-      }))
-    }
-
     for (const value in filtercaty) {
-      newArr.push(...products.filter(item => {
-        if (filtercaty[value] === true) {
-          return item.category === `${value}`
-        }
-      }))
-    }
-
-    return newArr.filter(item => {
-      if (item.name.includes(search.toUpperCase())) {
-        teste++
-        return item
+      if (filtercaty[value] === true) {
+        newArr.push(...array.filter(item => {
+          return item.category === value
+        }))
       }
-    }).slice(pagesVisited, pagesVisited + page.productsPerPage)
-      .map((item, index) => {
-        return (
-          <CardProduct
-            arr={item}
-            id={item.id}
-            price={item.price}
-            key={index}
-            name={item.name}
-            imageURL={item.imageURL}
-            barcode={item.barcode}
-            quantityAvailable={item.quantityAvailable}
-            maker={item.maker}
-          />
-        )
-      })
-  } */
+    }
+    if (newArr.length === 0) {
+      count = array.length / page.productsPerPage
+      return array
+    } else {
+      count = newArr.length / page.productsPerPage
+      return newArr
+    }
+  }
 
   /******************************************************/
   /******************************************************/
+
   const renderFilter = (array: Product[]): any[] => {
     return array.filter(item => {
       if (item.name.includes(search.toUpperCase())) {
@@ -173,10 +146,8 @@ function Products (): JSX.Element {
       [name]: e.target.checked
     })
     if (name === 'stock') {
-      setStock(true)
+      setStock(!stock)
     }
-    setAll(false)
-    // FilterProducts()
   }
 
   const handleSelectLimit = (e): void => {
@@ -194,12 +165,12 @@ function Products (): JSX.Element {
   }
 
   useEffect(() => {
-    setPage({
+    /* setPage({
       pageNumber: count,
       productsPerPage: page.productsPerPage
-    })
+    }) */
     changePage(0)
-  }, [teste, page.productsPerPage])
+  }, [teste, page.productsPerPage, actions, stock, filtercaty])
 
   return (
     <Container>
