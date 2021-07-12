@@ -4,7 +4,7 @@ import { CartContext } from '@/context/cart'
 import { Product } from '@/types/product'
 
 function Cart (props: Product): JSX.Element {
-  const { addItem, deleteItem } = useContext(CartContext)
+  const { addItem, deleteItem, removeItemCart } = useContext(CartContext)
   const { cart } = useContext(CartContext)
 
   const searchProduct = (): number => {
@@ -48,7 +48,7 @@ function Cart (props: Product): JSX.Element {
             </div> */}
           </li>
           <li><span>Valor</span><span>R$ {total ? total.toFixed(2) : 0}</span></li>
-          <li><button>D</button></li>
+          <li><button onClick={() => removeItemCart(props.arr)}>D</button></li>
         </ul>
         <div>
           <SpanRd>{props.maker}</SpanRd>

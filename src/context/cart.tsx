@@ -72,12 +72,24 @@ const CartProvider: React.FC = ({ children }) => {
     localStorage.removeItem('CartNexfar')
   }
 
+  const removeItemCart = (item: Product): boolean => {
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].product.id === item.id) {
+        if (cart[i].quantity >= 1) {
+          cart.splice(i, 1)
+          setCart([...cart])
+          return false
+        }
+      }
+    }
+  }
+
   const setItem = (item): void => {
     localStorage.setItem('CartNexfar', JSON.stringify(item))
   }
 
   return (
-    <CartContext.Provider value={{ addItem, deleteItem, cart, totalPrice, clearCart }}>
+    <CartContext.Provider value={{ addItem, deleteItem, cart, totalPrice, clearCart, removeItemCart }}>
       {children}
     </CartContext.Provider>
   )
