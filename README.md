@@ -18,7 +18,7 @@ seja um ponto bem importante, por exemplo:
 Pesquisando por todos -> Estoque disponível (x) -> Similares (x) -> Em promoção (x) <br>
 Dessa forma, fica claro para o usuário o que realmente ele está pesquisando e é possível excluir itens da pesquisa.
 
-# Observações:
+### Observações:
 
 - Os ícones não estão presentes no material;
 - A API está com um problema de CORS;
