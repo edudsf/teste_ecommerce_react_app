@@ -78,6 +78,7 @@ const CartProvider: React.FC = ({ children }) => {
         if (cart[i].quantity >= 1) {
           cart.splice(i, 1)
           setCart([...cart])
+          setItem(cart)
           return false
         }
       }
