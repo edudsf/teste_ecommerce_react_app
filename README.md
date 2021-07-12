@@ -25,5 +25,19 @@ Dessa forma, fica claro para o usuário o que realmente ele está pesquisando e 
 - Procurei utilizar diferentes técnicas no CSS para mostrar que tenho conhecimento;
 - Os componentes podem ser melhorados, assim como a programação funcional;
 - Caso fosse necessário, faria uma excelente implementação do layout para dispositivos móveis;
+- O typescript não foi utilizado em sua melhor forma;
+
+### Implementações a serem feitas:
+
+- Efeitos de loading para melhorar a experiência do usuário;
+- Criar um modelo de aplicação utilizando Clean Archicteture;
 
 ********
+
+## O que funciona!
+
+- Barra de pesquisa, ordenação e exibição;
+- Adicionar, remover e deletar todos os itens do carrinho;
+- Acesso ao carrinho pela Header da aplicação;
+- Botoões de voltar, ir para pagamento e limpar carrinho;
+- Filtro de Estoque e Categorias (GENÉRICOS E SIMILARES)
