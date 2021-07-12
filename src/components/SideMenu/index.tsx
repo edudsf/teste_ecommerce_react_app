@@ -20,7 +20,7 @@ function SideMenu (): JSX.Element {
         <H2>COMPRAS</H2>
         <ul>
           <li><Link to="" /><span>i</span><span>Promoções</span></li>
-          <li><Link to="" /><span>i</span><span>Produtos</span></li>
+          <li><Link to="/produtos" /><span>i</span><span>Produtos</span></li>
           <li><Link to="" /><span>i</span><span>Pedidos</span></li>
           <li><Link to="" /><span>i</span><span>Cupons</span></li>
         </ul>
