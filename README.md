@@ -24,4 +24,4 @@ Dessa forma, fica claro para o usuário o que realmente ele está pesquisando e 
 - A API está com um problema de CORS;
 - Procurei utilizar diferentes técnicas no CSS para mostrar que tenho conhecimento;
 - Os componentes podem ser melhorados, assim como a programação funcional;
-- Caso fosse necessário, faria uma excelente implemtanção do layout para dispositivos móveis;
+- Caso fosse necessário, faria uma excelente implementação do layout para dispositivos móveis;
