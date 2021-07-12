@@ -39,5 +39,5 @@ Dessa forma, fica claro para o usuário o que realmente ele está pesquisando e 
 - Barra de pesquisa, ordenação e exibição;
 - Adicionar, remover e deletar todos os itens do carrinho;
 - Acesso ao carrinho pela Header da aplicação;
-- Botoões de voltar, ir para pagamento e limpar carrinho;
-- Filtro de Estoque e Categorias (GENÉRICOS E SIMILARES)
+- Botões de voltar, ir para pagamento e limpar carrinho;
+- Filtro de Estoque e Categorias (GENÉRICOS/SIMILARES). As funcionalidades já estão implementadas para os outros filtros, só precisam ser ajustadas;
