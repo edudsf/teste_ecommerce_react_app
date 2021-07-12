@@ -54,7 +54,7 @@ Dessa forma, fica claro para o usuário o que realmente ele está pesquisando e 
 
 - O projeto foi configurado utilizando o webpack, eslint, husky/lint-staged e typescript.
 
-### - Dependências
+### - Dependências:
 
 1. Axios
 2. Eslint
