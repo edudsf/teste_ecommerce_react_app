@@ -7,7 +7,7 @@ export const Column3 = styled.div``
 export const Container = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 2fr 6fr 250px 1fr;
+  grid-template-columns: 1fr 2fr 6fr 280px 1fr;
   grid-template-rows: auto 1fr;
   grid-column-start: 1;
   grid-column-end: 6;
@@ -40,11 +40,14 @@ export const Container = styled.div`
     }
     & > :first-child {
       padding-right: 10px;
+      & a > :first-child {
+        font-weight: 600;
+      }
       & > a * {
         padding: 4px 0;
       }
-      & > a span:last-of-type {
-        font-size: 0.8em;
+      & > a > span:last-of-type {
+        font-size: 0.9em;
       }
       & div > :last-child {
         padding-left: 6px;

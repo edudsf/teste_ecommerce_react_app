@@ -10,7 +10,7 @@ import { Product } from '@/types/product'
 function Products (): JSX.Element {
   const { products } = useContext<any>(GettersContext)
 
-  let teste = 0
+  const teste = 0
   let count = 0
   const [stateCheckbox, setStateCheckbox] = useState(false)
   const [filtercaty, setFilterCaty] = useState<Categories>({
@@ -37,6 +37,7 @@ function Products (): JSX.Element {
   // const count = Math.ceil(teste / page.productsPerPage)
 
   const handleInputSearch = (e): void => {
+    setStateCheckbox(!stateCheckbox)
     setSearch(e.target.value)
   }
 
@@ -62,6 +63,13 @@ function Products (): JSX.Element {
   /******************************************************/
 
   const renderMethod = (): any => {
+    if (search) {
+      return filterCategory(products.filter(item => {
+        if (item.name.includes(search.toUpperCase())) {
+          return item
+        }
+      }))
+    }
     if (stock === true && actions === true) {
       let array = []
       array = products.filter(item => {
@@ -115,12 +123,7 @@ function Products (): JSX.Element {
   /******************************************************/
 
   const renderFilter = (array: Product[]): any[] => {
-    return array.filter(item => {
-      if (item.name.includes(search.toUpperCase())) {
-        teste++
-        return item
-      }
-    }).slice(pagesVisited, pagesVisited + page.productsPerPage)
+    return array.slice(pagesVisited, pagesVisited + page.productsPerPage)
       .map((item, index) => {
         return (
           <CardProduct
@@ -153,6 +156,7 @@ function Products (): JSX.Element {
   }
 
   const handleSelectLimit = (e): void => {
+    setStateCheckbox(!stateCheckbox)
     setPage({
       productsPerPage: Number(e.target.value),
       pageNumber: page.pageNumber
@@ -170,12 +174,8 @@ function Products (): JSX.Element {
   /******************************************************/
 
   useEffect(() => {
-    /* setPage({
-      pageNumber: count,
-      productsPerPage: page.productsPerPage
-    }) */
     changePage(0)
-  }, [filtercaty, stock, teste])
+  }, [filtercaty, stock, teste, page.productsPerPage, search])
 
   return (
     <Container>
