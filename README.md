@@ -6,7 +6,7 @@ https://edudsf-nexfar.surge.sh/
 ## Desafios durante a execução da aplicação
 
 Durante a diagramação (estilização do layout) tive um pouco de dificuldade para entender como seria a estrutura em relação a viewport da tela, ou seja, se teria uma medida 'x', 
-ou então ocuparia um espaço de 100% em relação a tela. Minha solução foi adaptar um layout que possa ser facilmente atualizado
+ou então ocuparia um espaço de 100% em relação a tela. Minha solução foi adaptar um layout que possa ser facilmente atualizado.
 
 Outro problema com o qual me deparei, foi na hora de utilizar a API, a mesma está com um problema de CORS. Os requisitos funcionais também não ficaram muito claros.
 
