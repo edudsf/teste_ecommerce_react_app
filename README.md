@@ -10,7 +10,7 @@ ou então ocuparia um espaço de 100% em relação a tela. Minha solução foi a
 
 Outro problema com o qual me deparei, foi na hora de utilizar a API, a mesma está com um problema de CORS. Os requisitos funcionais também não ficaram muito claros.
 
-## Dicas e observações gerais:
+## Dicas e observações gerais
 
 O layout é bonito e clean, com um pouco de planejamento pode se tornar uma aplicação bem moderna e adaptável. Faria algumas melhorias na barra de pesquisa, pois acredito que
 seja um ponto bem importante, por exemplo:
@@ -25,3 +25,5 @@ Dessa forma, fica claro para o usuário o que realmente ele está pesquisando e 
 - Procurei utilizar diferentes técnicas no CSS para mostrar que tenho conhecimento;
 - Os componentes podem ser melhorados, assim como a programação funcional;
 - Caso fosse necessário, faria uma excelente implementação do layout para dispositivos móveis;
+
+********
