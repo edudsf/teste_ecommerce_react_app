@@ -1,1 +1,1 @@
-export const apiURL = 'https://bfa938b0-60d5-4af6-b351-ff02cb73cf33.mock.pstmn.io/v1'
+export const apiURL = 'https://d1515c3e-935e-4164-9e35-37dd41d5bbe1.mock.pstmn.io/v1'
